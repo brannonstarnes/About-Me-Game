@@ -63,10 +63,10 @@ let nurseQ = prompt(
 
 if (nurseQ.toLowerCase() == "yes" || nurseQ.toLowerCase() == "y") {
   //console.log('That's incorrect!')
-  alert("Ooh, sorry, " + userName + ", that is incorrect.");
+  alert("Niiiice, " + userName + ", that is correct!");
 } else if (nurseQ.toLowerCase() == "no" || nurseQ.toLowerCase() == "n") {
   //console.log('That's correct!')
-  alert("Well done, " + userName + "!");
+  alert("Oooh, sorry, " + userName + "!");
 } else {
   alert("Please answer yes or no only.");
   // return;
@@ -96,14 +96,14 @@ if (goal.toLowerCase() == "yes" || goal.toLowerCase() == "y") {
 let numberGuess = prompt(
   "Ok, " +
     userName +
-    " let's try something new. I'll give you 6 attempts to guess the number I'm thinking between 1 and 50. Go ahead. "
+    " let's try something new. I'll give you 6 attempts to guess the number I'm thinking between 1 and 20. Go ahead. "
 );
 
 let guessCount = 0;
 
 //Declare the function for the number guessing game
 function numberGame() {
-  let goalNumber = 42;
+  let goalNumber = 11;
   console.log(goalNumber);
   //console.log("Made it here");
 
@@ -113,46 +113,73 @@ function numberGame() {
       break;
     }
     if (numberGuess > goalNumber) {
-      // guessCount++; //add 1 to the guess counter
       console.log("inside high", numberGuess);
       alert("Your guess is too high.");
-
-      // numberGame();
     }
     if (numberGuess < goalNumber) {
-      // guessCount++;
       console.log("inside low", numberGuess);
       alert("Your guess is too low.");
-      //prompt the user to try again
-      // tryAgain();
-      //set numberGuess value to the tryAgain value and reevaluate
     }
     if (numberGuess == goalNumber) {
       guessCount++;
       console.log("inside correct", numberGuess);
-      //  guessCount++;
+
       alert(
         "Congratualtions! You got it in " + guessCount.toString() + " tries!"
       );
       break;
     }
     if (!numberGuess) {
-      //add 1 to the guess counter
-      //  guessCount++;
-      //numberGuess = 1; //to avoid a neverending loop, give this a value
       alert("Please enter a valid number.");
-      // tryAgain;
     }
     guessCount++;
     numberGuess = prompt("That's " + guessCount + " guesses. Try again!");
     console.log("Inside try again", numberGuess);
   }
 }
-// function tryAgain(numberGuess) {
-//   // numberGuess = prompt("That's " + guessCount + " guesses. Try again!");
-//   // console.log("Inside try again", numberGuess);
-//   return numberGuess;
-// }
 
 numberGame();
-//tryAgain();
+// //tryAgain();
+
+const myStates = [
+  "tennessee",
+  "utah",
+  "florida",
+  "illinois",
+  "texas",
+  "georgia",
+];
+
+let guessState = prompt(
+  "One more game. Can you guess one of six states I have lived in?"
+);
+let stateGuessCount = 1;
+
+function stateGuessGame() {
+  // if (guessState == true){
+
+  if (stateGuessCount == 6) {
+    console.log("inside guesscount equal 6");
+    alert("Nice try! Game Over.");
+  }
+  for (var i = 0; i < 6; i++) {
+    console.log("in incrementer", i);
+
+    //credit https://www.geeksforgeeks.org/ways-iterating-array-javascript/
+    if (guessState.toLowerCase() == myStates[i]) {
+      //congrats
+      console.log("inside state guess win", guessState);
+      alert("Congratulations, " + userName + " you got it right!");
+      break;
+    }
+  }
+  if (guessState.toLowerCase() !== myStates[i]) {
+    //go again
+    console.log("inside guess again", i);
+    //
+  }
+  guessState = prompt("That's " + stateGuessCount + " guess. Try again.");
+  console.log("stateguess number", stateGuessCount);
+}
+
+stateGuessGame();
