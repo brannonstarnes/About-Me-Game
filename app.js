@@ -2,6 +2,10 @@
 
 //Welcome the User
 let userName = prompt("Hello, and welcome to my Game! What is your name?");
+//get Random number for game later
+
+//let goalNumber = Math.floor(Math.random() * 50);
+//console.log(goalNumber);
 
 // //Ask the first yes/no question while using their name
 let born = prompt(
@@ -83,3 +87,72 @@ if (goal.toLowerCase() == "yes" || goal.toLowerCase() == "y") {
   alert("Please answer yes or no only.");
   // return;
 }
+
+//set up for number guessing game below
+
+//Generate a random number 1-50 called goalNumber CREDIT: https://www.w3schools.com/js/js_random.asp
+
+//Prompt User to guess the value of goalNumber
+let numberGuess = prompt(
+  "Ok, " +
+    userName +
+    " let's try something new. I'll give you 6 attempts to guess the number I'm thinking between 1 and 50. Go ahead. "
+);
+
+let guessCount = 0;
+
+//Declare the function for the number guessing game
+function numberGame() {
+  let goalNumber = 42;
+  console.log(goalNumber);
+  //console.log("Made it here");
+
+  for (var i = 0; i < 5; i++) {
+    if (guessCount == 6) {
+      alert("That was your 6th attempt. Game Over!");
+      break;
+    }
+    if (numberGuess > goalNumber) {
+      // guessCount++; //add 1 to the guess counter
+      console.log("inside high", numberGuess);
+      alert("Your guess is too high.");
+
+      // numberGame();
+    }
+    if (numberGuess < goalNumber) {
+      // guessCount++;
+      console.log("inside low", numberGuess);
+      alert("Your guess is too low.");
+      //prompt the user to try again
+      // tryAgain();
+      //set numberGuess value to the tryAgain value and reevaluate
+    }
+    if (numberGuess == goalNumber) {
+      guessCount++;
+      console.log("inside correct", numberGuess);
+      //  guessCount++;
+      alert(
+        "Congratualtions! You got it in " + guessCount.toString() + " tries!"
+      );
+      break;
+    }
+    if (!numberGuess) {
+      //add 1 to the guess counter
+      //  guessCount++;
+      //numberGuess = 1; //to avoid a neverending loop, give this a value
+      alert("Please enter a valid number.");
+      // tryAgain;
+    }
+    guessCount++;
+    numberGuess = prompt("That's " + guessCount + " guesses. Try again!");
+    console.log("Inside try again", numberGuess);
+  }
+}
+// function tryAgain(numberGuess) {
+//   // numberGuess = prompt("That's " + guessCount + " guesses. Try again!");
+//   // console.log("Inside try again", numberGuess);
+//   return numberGuess;
+// }
+
+numberGame();
+//tryAgain();
