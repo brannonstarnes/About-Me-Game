@@ -14,6 +14,7 @@ let born = prompt(
 //Allow user to answer yes/no OR y/n. Take input and make lowercase
 
 //Question 1
+function meQuiz(){
 if (born.toLowerCase() == "yes" || born.toLowerCase() == "y") {
   alert("Ooh, sorry, " + userName + ", that is incorrect.");
 } else if (born.toLowerCase() == "no" || born.toLowerCase() == "n") {
@@ -78,6 +79,8 @@ if (goal.toLowerCase() == "yes" || goal.toLowerCase() == "y") {
   alert("Please answer yes or no only.");
   // return;
 }
+}
+meQuiz();
 
 //************************NUMBER GUESSING GAME*************************************
 
@@ -131,52 +134,53 @@ function numberGame() {
 numberGame();
 // //tryAgain();
 
-const myStates = [
-  "tennessee",
-  "utah",
-  "florida",
-  "illinois",
-  "texas",
-  "georgia",
-];
+ const myStates = [
+   "tennessee",
+   "utah",
+   "florida",
+   "illinois",
+   "texas",
+   "georgia",
+ ];
 
-let guessState = prompt(
-  "One more game. Can you guess one of six states I have lived in?"
-);
-let stateGuessCount = 1;
-let correctAns = false;
+ let guessState = prompt(
+   "One more game. Can you guess one of six states I have lived in?"
+ );
+ let stateGuessCount = 1;
+ let correctAns = false;
 
 function stateGuessGame() {
   // if (guessState == true){
 
-  while (stateGuessCount > 0 && correctAns == false) {
-    //  console.log("inside guesscount equal 6");
-    //alert("Nice try! Game Over.");
+  while (stateGuessCount < 6 && correctAns == false) {
+
     for (var i = 0; i < myStates.length; i++) {
       //credit https://www.geeksforgeeks.org/ways-iterating-array-javascript/
 
       if (guessState.toLowerCase() == myStates[i]) {
         //congrats
         console.log("inside state guess win", guessState);
-        alert(
-          "Congratulations, " +
-            userName +
-            " you got it right in " +
-            stateGuessCount +
-            " guesses!"
-        );
+         alert(
+           "Congratulations, " +
+             userName +
+             " you got it right in " +
+             stateGuessCount +
+             " guesses!"
+         );
         correctAns = true;
         break;
       }
     }
-    if (!correctAns) {
+    {
       //go again
+      stateGuessCount++
       console.log("inside guess again", i);
       //
     }
+    if (!correctAns){
     guessState = prompt("That's " + stateGuessCount + " guess. Try again.");
     console.log("stateguess number", stateGuessCount);
-  }
+    }
+  } 
 }
-
 stateGuessGame();
