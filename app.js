@@ -1,11 +1,11 @@
 "use strict";
 
-//Welcome the User and get their name
+//Welcome
 let userName = prompt("Hello, and welcome to my Game! What is your name?");
 let correctTotal = 0;
+
 //*************************QUIZ ABOUT ME GAME********************************
 
-// //Ask the first yes/no question while using their name
 let born = prompt(
   "Ok, " + userName + ", do you think Brannon was born in California? Yes/No?",
   ""
@@ -37,7 +37,6 @@ function meQuiz() {
     correctTotal++;
   } else {
     alert("Please answer yes or no only.");
-    // return;
   }
 
   //Question 3
@@ -54,7 +53,6 @@ function meQuiz() {
     alert("Swing and a miss! Sorry, " + userName + "!");
   } else {
     alert("Please answer yes or no only.");
-    // return;
   }
 
   //Question 4
@@ -69,7 +67,6 @@ function meQuiz() {
     alert("Oooh, sorry, " + userName + "!");
   } else {
     alert("Please answer yes or no only.");
-    // return;
   }
 
   //Question 5
@@ -86,28 +83,22 @@ function meQuiz() {
     );
   } else {
     alert("Please answer yes or no only.");
-    // return;
   }
 }
 meQuiz();
 
 //************************NUMBER GUESSING GAME*************************************
 
-//Prompt User to guess the value of goalNumber
 let numberGuess = prompt(
   "Ok, " +
     userName +
     " let's try something new. I'll give you 4 attempts to guess the number I'm thinking between 1 and 20. Go ahead. "
 );
 
-//let guessCount = 0;
-
-//DECLARE FUNCTION for the number guessing game
 function numberGame() {
   //Generate a random number 1-20 called goalNumber CREDIT: https://www.w3schools.com/js/js_random.asp
   let goalNumber = 11; //Math.random() * 20);
   console.log(goalNumber);
-  //console.log("Made it here");
 
   for (var guessCount = 1; guessCount < 5; guessCount++) {
     if (guessCount == 4) {
@@ -138,7 +129,6 @@ function numberGame() {
 }
 
 numberGame();
-// //tryAgain();
 
 const myStates = [
   "tennessee",
@@ -156,8 +146,6 @@ let stateGuessCount = 0;
 let correctAns = false;
 
 function stateGuessGame() {
-  // if (guessState == true){
-
   while (stateGuessCount < 6 && correctAns == false) {
     for (var i = 0; i < myStates.length; i++) {
       //credit https://www.geeksforgeeks.org/ways-iterating-array-javascript/
@@ -179,10 +167,8 @@ function stateGuessGame() {
       }
     }
     {
-      //go again
       stateGuessCount++;
       console.log("inside guess again", i);
-      //
     }
     if (!correctAns) {
       guessState = prompt("That's " + stateGuessCount + " guess. Try again.");
